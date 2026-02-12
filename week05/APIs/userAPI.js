@@ -48,7 +48,7 @@ userRoute.put('/articles/:articleId/comments/users/:userId',verifyToken,async(re
         return res.status(401).json({message:"user not found"})
     }
     //if all vaild add comment by getting aryicleId and update
-    let addedComment=await ArticleModel.findByIdAndUpdate(articleId,{$set:{comments:{user:userId,comment:commentTxt}}},{new:true})
+    let addedComment=await ArticleModel.findByIdAndUpdate(articleId,{$push:{comments:{user:userId,comment:commentTxt}}},{new:true})
     //return response
     res.status(200).json({message:"comment added successfully",payload:addedComment})
 })
