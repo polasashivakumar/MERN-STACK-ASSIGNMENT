@@ -5,7 +5,6 @@ import jwt from 'jsonwebtoken'
 import { UserTypeModel } from '../models/UserModel.js'
 import { hash,compare } from 'bcryptjs'
 
-
 //login
 commonRouter.post('/login',async(req,res)=>{
     let userCred=req.body
